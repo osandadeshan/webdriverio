@@ -44,7 +44,8 @@ $ npx runme clean bootstrap link generateTypings compile copyTemplates
 
 This will:
 
-- *Cleanup**
+- *Cleanup*
+
   If you have compiled the code this command will remove them as well as all dependencies of the subpackages.
 
   ```sh { name=clean }
@@ -55,6 +56,7 @@ This will:
   ```
 
 - *Bootstrap via Lerna*
+
   Many packages depend on each other, in order to properly set up the dependency tree you need to run the [Lerna Bootstrap](https://github.com/lerna/lerna#bootstrap) command to create all necessary links. As this project also does some other house keeping tasks, it is recommended to use the package bootstrap command.
 
   ```sh { name=bootstrap }
@@ -72,6 +74,7 @@ This will:
   ```
 
 - *Compile TypeScript*
+
   Next, you need to build all sub-packages in order to resolve the internal dependencies. WebdriverIO uses [TypeScript](https://www.typescriptlang.org/) as a compiler. A custom build script helps to compile the packages in the right order.
 
   ```sh { name=compile }

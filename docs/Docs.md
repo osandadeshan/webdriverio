@@ -13,7 +13,7 @@ Changes to the docs need to be done in one of these places. Please note that cha
 The easiest way to get a version of the documentation run locally is via:
 
 ```sh { name=docs }
-npx runme clean setup generate start
+npx runme2 clean setup generate start
 ```
 
 ## Setup Docusaurus
@@ -50,7 +50,7 @@ cd website
 npx docusaurus start
 ```
 
-This will set up everything needed to run the page on [`localhost:3000`](http://localhost:3000/). You can now modify the content of the [`/website/docs`](https://github.com/webdriverio/webdriverio/tree/main/website/docs) files as well as change styles and templates. The page will be automatically updated. If you add documentation in other places, you have to rerun the `npx runme start` script to re-generate the docs.
+This will set up everything needed to run the page on [`localhost:3000`](http://localhost:3000/). You can now modify the content of the [`/website/docs`](https://github.com/webdriverio/webdriverio/tree/main/website/docs) files as well as change styles and templates. The page will be automatically updated. If you add documentation in other places, you have to rerun the `npx runme2 start` script to re-generate the docs.
 
 ## Build Static Files
 

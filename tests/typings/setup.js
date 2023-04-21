@@ -41,9 +41,6 @@ const packages = {
  * copy package.json and typings from package to type-generation/test/.../node_modules
  */
 async function copy() {
-    if (tsVersion) {
-        spawnSync('npm', ['ci'])
-    }
     await Promise.all(
         outDirs.map(async (outDir) => {
             await Promise.all(Object.keys(packages).map(async (packageName) => {

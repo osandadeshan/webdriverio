@@ -39,7 +39,7 @@ $ npm install
 This will install the defined Node.js version for you. You can then go ahead and set-up the project via:
 
 ```sh { name=setup }
-$ npx runme clean bootstrap link generateTypings compile copyTemplates
+$ npx runme2 clean bootstrap link generateTypings compile copyTemplates
 ```
 
 This will:
@@ -49,10 +49,11 @@ This will:
   If you have compiled the code this command will remove them as well as all dependencies of the subpackages.
 
   ```sh { name=clean }
-  rimraf ./packages/*/package-lock.json
-  rimraf ./packages/*/*.tgz
-  rimraf ./packages/*/build
-  rimraf ./packages/node_modules
+  $ npx rimraf './packages/*/package-lock.json'
+  $ npx rimraf './packages/*/*.tgz'
+  $ npx rimraf './packages/*/build'
+  $ npx rimraf './packages/*/node_modules'
+  $ npx rimraf './packages/node_modules'
   ```
 
 - *Bootstrap via Lerna*
@@ -60,7 +61,7 @@ This will:
   Many packages depend on each other, in order to properly set up the dependency tree you need to run the [Lerna Bootstrap](https://github.com/lerna/lerna#bootstrap) command to create all necessary links. As this project also does some other house keeping tasks, it is recommended to use the package bootstrap command.
 
   ```sh { name=bootstrap }
-  npx lerna bootstrap --force-local
+  npx lerna bootstrap --no-ci
   ```
 
 - *Link Packages for Local Development*
@@ -69,8 +70,8 @@ This will:
   ```
 
 - *Generate Types from WebDriver Protocols*
-  ```sh { name=generateTypings }
-  npx runme generateTypings
+  ```sh
+  npx runme2 generateTypings
   ```
 
 - *Compile TypeScript*

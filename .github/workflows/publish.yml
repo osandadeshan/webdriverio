@@ -58,10 +58,10 @@ jobs:
         run: npm ci
       - name: Release
         run: |
-          npx runme setup-full --chdir docs --filename Setup.md
-          npx runme generateTypings --chdir docs --filename Setup.md
-          npx runme publish --chdir docs --filename Release.md
-          npx runme pushReleaseTag --chdir docs --filename Release.md
+          npx runme2 setup-full --chdir docs --filename Setup.md
+          npx runme2 generateTypings --chdir docs --filename Setup.md
+          npx runme2 publish --chdir docs --filename Release.md
+          npx runme2 pushReleaseTag --chdir docs --filename Release.md
         env:
           NODE_ENV: production
           GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}

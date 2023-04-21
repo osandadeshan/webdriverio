@@ -5,10 +5,6 @@ import { spawnSync } from 'node:child_process'
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const ROOT = path.resolve(__dirname, '..', '..')
-const TS_PARAMETER = '--ts='
-const tsArg = process.argv.find((v) => v.startsWith(TS_PARAMETER))
-const tsVersion = tsArg ? tsArg.slice(TS_PARAMETER.length) : undefined
-const tsDir = tsVersion ? path.join(__dirname, '@typescript', `ts${tsVersion}`) : ''
 
 // TypeScript project root for testing particular typings
 const outDirs = [
@@ -46,7 +42,7 @@ const packages = {
  */
 async function copy() {
     if (tsVersion) {
-        spawnSync('npm', ['ci'], { cwd: tsDir })
+        spawnSync('npm', ['ci'])
     }
     await Promise.all(
         outDirs.map(async (outDir) => {
@@ -58,16 +54,6 @@ async function copy() {
                 await mkdir(destDir, { recursive: true })
                 return symlink(target, destination, 'dir')
             }))
-            if (tsVersion) {
-                const typescriptDirs = ['typescript', '.bin']
-                await Promise.all(typescriptDirs.map((d) =>
-                    symlink(
-                        path.join(tsDir, 'node_modules', d),
-                        path.join(__dirname, outDir, 'node_modules', d),
-                        'dir'
-                    )
-                ))
-            }
         })
     )
 }

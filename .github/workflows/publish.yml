@@ -58,10 +58,10 @@ jobs:
         run: npm ci
       - name: Release
         run: |
-          npm run setup-full
-          npm run generate:typings
-          npx lerna publish ${{github.event.inputs.releaseType}} --exact --yes --dist-tag ${{github.event.inputs.distTag}}
-          npm run pushReleaseTag
+          npx runme setup-full --chdir docs --filename Setup.md
+          npx runme generateTypings --chdir docs --filename Setup.md
+          npx runme publish --chdir docs --filename Release.md
+          npx runme pushReleaseTag --chdir docs --filename Release.md
         env:
           NODE_ENV: production
           GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}

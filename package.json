@@ -6,7 +6,7 @@
     "whereAreMyScripts": "echo \"see docs/Readme.md\"",
     "version": "runme generateChangelog && git add CHANGELOG.md",
     "postinstall": "run-s postinstall:*",
-    "postinstall:husky": "runme husky --chdir=docs --filename=Setup.md",
+    "postinstall:husky": "runme husky",
     "postinstall:vulnerabilities": "node ./.husky/postinstall.js"
   },
   "devDependencies": {
@@ -57,7 +57,7 @@
     "recursive-readdir": "^2.2.3",
     "request": "^2.88.2",
     "rimraf": "^3.0.2",
-    "runme": "^2.3.0",
+    "runme": "^2.3.1",
     "shelljs": "^0.8.5",
     "shx": "^0.3.4",
     "tempy": "^3.0.0",

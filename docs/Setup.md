@@ -39,7 +39,7 @@ $ npm install
 This will install the defined Node.js version for you. You can then go ahead and set-up the project via:
 
 ```sh { name=setup }
-$ npx runme2 clean bootstrap link generateTypings compile copyTemplates
+npx runme2 clean bootstrap link generateTypings compile copyTemplates
 ```
 
 This will:

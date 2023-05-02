@@ -3,7 +3,7 @@
 This project has a set of commands that help you to validate your code. Every test layer is described further below. You can run them individually or with a single command:
 
 ```sh { name=test }
-npx runme2 test:depcheck test:linting test:typings test:unit test:smoke test:component test:e2e
+RUNME_EXPERIMENTAL_CLI=1 npx runme test:depcheck test:linting test:typings test:unit test:smoke test:component test:e2e
 ```
 
 "test": "run-s test:eslint test:ejslint test:typings test:unit:run test:smoke test:component",
@@ -14,32 +14,32 @@ When a PR gets submitted, WebdriverIO runs the following checks:
 
 - [*Dependency Checks*](#dependency-checks)
   ```sh
-  npx runme2 test:depcheck
+  RUNME_EXPERIMENTAL_CLI=1 npx runme test:depcheck
   ```
 
 - [*Linting*](#linting)
   ```sh { name=test:linting }
-  npx runme2 -p test:eslint test:ejslint
+  RUNME_EXPERIMENTAL_CLI=1 npx runme -p test:eslint test:ejslint
   ```
 
 - [*TypeScript Definition Tests*](#testing-type-definitions)
   ```sh
-  npx runme2 test:typings
+  RUNME_EXPERIMENTAL_CLI=1 npx runme test:typings
   ```
 
 - [*Unit Tests*](#unit-tests)
   ```sh
-  npx runme2 test:unit
+  RUNME_EXPERIMENTAL_CLI=1 npx runme test:unit
   ```
 
 - [*Smoke Tests*](#run-e2e-experience-with-smoke-tests)
   ```sh
-  npx runme2 test:smoke
+  RUNME_EXPERIMENTAL_CLI=1 npx runme test:smoke
   ```
 
 - [*Component Tests*](#component-testing)
   ```sh
-  npx runme2 test:component
+  RUNME_EXPERIMENTAL_CLI=1 npx runme test:component
   ```
 
 - [*e2e Tests*](#e2e-tests)
@@ -77,11 +77,11 @@ As we generate our type definitions, we want to be cautious that the generated d
 
 ```sh { name=test:typings }
 # run tests for latest TypeScript version
-npx runme2 test:typings:setup
+RUNME_EXPERIMENTAL_CLI=1 npx runme test:typings:setup
 # Run Typing Tests
-npx runme2 -p test:typings:compile:webdriver test:typings:compile:devtools test:typings:compile:webdriverio test:typings:compile:mocha test:typings:compile:jasmine test:typings:compile:cucumber
+RUNME_EXPERIMENTAL_CLI=1 npx runme -p test:typings:compile:webdriver test:typings:compile:devtools test:typings:compile:webdriverio test:typings:compile:mocha test:typings:compile:jasmine test:typings:compile:cucumber
 # Clean Compiled Files
-npx runme2 test:typings:clean
+RUNME_EXPERIMENTAL_CLI=1 npx runme test:typings:clean
 ```
 
 This will:
@@ -238,7 +238,7 @@ With v8 of WebdriverIO a new testrunner was introduced that allows to run tests 
 To run the complete component test suite, run:
 
 ```sh { name=test:component }
-npx runme2 test:component:setup test:component:run
+RUNME_EXPERIMENTAL_CLI=1 npx runme test:component:setup test:component:run
 ```
 
 This will:
@@ -262,7 +262,7 @@ Last but not least, we run actual e2e tests with a real browser to ensure that o
 You can run the complete e2e test suite via:
 
 ```sh { name=test:e2e }
-npx runme2 test:e2e:devtools test:e2e:edge test:e2e:firefox test:e2e:cloud test:e2e:cjs
+RUNME_EXPERIMENTAL_CLI=1 npx runme test:e2e:devtools test:e2e:edge test:e2e:firefox test:e2e:cloud test:e2e:cjs
 ```
 
 This will:

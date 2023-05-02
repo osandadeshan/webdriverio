@@ -58,10 +58,11 @@ jobs:
         run: npm ci
       - name: Release
         run: |
-          RUNME_EXPERIMENTAL_CLI=1 npx runme setup-full --chdir docs --filename Setup.md
-          RUNME_EXPERIMENTAL_CLI=1 npx runme generateTypings --chdir docs --filename Setup.md
-          RUNME_EXPERIMENTAL_CLI=1 npx runme publish --chdir docs --filename Release.md
-          RUNME_EXPERIMENTAL_CLI=1 npx runme pushReleaseTag --chdir docs --filename Release.md
+          npx runme run setup-full --chdir docs --filename Setup.md
+          npx runme run generateTypings --chdir docs --filename Setup.md
+          npx runme run publish --chdir docs --filename Release.md
+          npx runme run pushReleaseTag --chdir docs --filename Release.md
         env:
           NODE_ENV: production
+          RUNME_EXPERIMENTAL_CLI: true
           GITHUB_AUTH: ${{ secrets.GITHUB_TOKEN }}

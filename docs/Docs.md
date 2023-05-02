@@ -13,7 +13,7 @@ Changes to the docs need to be done in one of these places. Please note that cha
 The easiest way to get a version of the documentation run locally is via:
 
 ```sh { name=docs }
-RUNME_EXPERIMENTAL_CLI=1 npx runme clean setup generate start
+RUNME_EXPERIMENTAL_CLI=1 npx runme run docs:clean docs:setup docs:generate docs:start
 ```
 
 ## Setup Docusaurus
@@ -22,7 +22,7 @@ After you have [set up the project](./Setup.md) you can go into the `website` di
 
 To do so, install first the required dependencies:
 
-```sh { name=setup }
+```sh { name=docs:setup }
 cd website
 npm install
 ```
@@ -31,13 +31,13 @@ npm install
 
 The project pulls its documentation from various sources (see above). To run this process, first clean potentially old documentation via:
 
-```sh { name=clean }
-npx rimraf website/docs/_*.md website/docs/api/_*.md website/docs/api/**/_*.md website/sidebars.json
+```sh { name=docs:clean }
+npx rimraf website/docs/_\*.md website/docs/api/_\*.md website/docs/api/\*\*/_\*.md website/sidebars.json
 ```
 
 then re-generate them:
 
-```sh { name=generate }
+```sh { name=docs:generate }
 ts-node-esm ./scripts/docs-generation/generateDocs.ts
 ```
 
@@ -45,18 +45,18 @@ ts-node-esm ./scripts/docs-generation/generateDocs.ts
 
 You can run a local dev server via:
 
-```sh { name=start }
+```sh { name=docs:start }
 cd website
 npx docusaurus start
 ```
 
-This will set up everything needed to run the page on [`localhost:3000`](http://localhost:3000/). You can now modify the content of the [`/website/docs`](https://github.com/webdriverio/webdriverio/tree/main/website/docs) files as well as change styles and templates. The page will be automatically updated. If you add documentation in other places, you have to rerun the `RUNME_EXPERIMENTAL_CLI=1 npx runme start` script to re-generate the docs.
+This will set up everything needed to run the page on [`localhost:3000`](http://localhost:3000/). You can now modify the content of the [`/website/docs`](https://github.com/webdriverio/webdriverio/tree/main/website/docs) files as well as change styles and templates. The page will be automatically updated. If you add documentation in other places, you have to rerun the `RUNME_EXPERIMENTAL_CLI=1 npx runme run start` script to re-generate the docs.
 
 ## Build Static Files
 
 You can build the website and have all static files ready at `./website/build` via:
 
-```sh { name=build }
+```sh { name=docs:build }
 cd ./website
 docusaurus build
 ```
@@ -73,6 +73,6 @@ To deploy the website manually, make sure you have the following environment var
 
 then run:
 
-```sh { name=deploy }
+```sh { name=docs:deploy }
 node ./scripts/updateDocs.js
 ```

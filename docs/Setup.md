@@ -39,7 +39,7 @@ $ npm install
 This will install the defined Node.js version for you. You can then go ahead and set-up the project via:
 
 ```sh { name=setup }
-RUNME_EXPERIMENTAL_CLI=1 npx runme clean bootstrap link generateTypings compile copyTemplates
+RUNME_EXPERIMENTAL_CLI=1 npx runme run clean bootstrap link generateTypings compile copyTemplates
 ```
 
 This will:
@@ -71,7 +71,7 @@ This will:
 
 - *Generate Types from WebDriver Protocols*
   ```sh
-  RUNME_EXPERIMENTAL_CLI=1 npx runme generateTypings
+  RUNME_EXPERIMENTAL_CLI=1 npx runme run generateTypings
   ```
 
 - *Compile TypeScript*

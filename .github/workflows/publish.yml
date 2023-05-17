@@ -58,10 +58,10 @@ jobs:
         run: npm ci
       - name: Release
         run: |
-          npx runme run setup-full --chdir docs --filename Setup.md
-          npx runme run generateTypings --chdir docs --filename Setup.md
-          npx runme run publish --chdir docs --filename Release.md
-          npx runme run pushReleaseTag --chdir docs --filename Release.md
+          runme run setup-full
+          runme run generateTypings
+          runme run publish
+          runme run pushReleaseTag
         env:
           NODE_ENV: production
           RUNME_EXPERIMENTAL_CLI: true

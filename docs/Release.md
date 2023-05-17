@@ -14,11 +14,11 @@ If a release is triggered, it runs the following procedures:
 
 - *Build the project from scratch*
   ```sh
-  npx runme run setup-full --chdir docs --filename Setup.md
+  runme run setup-full --chdir docs --filename Setup.md
   ```
 - *Generate Typings*
   ```sh
-  npx runme run generateTypings --chdir docs --filename Setup.md
+  runme run generateTypings --chdir docs --filename Setup.md
   ```
 - *Published Packages through Lerna*
   ```sh { name=publish }
